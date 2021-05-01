@@ -15,6 +15,11 @@ const Home: React.FC = () => {
             My Portfolio Projects
           </Link>
         </div>
+        <img
+          src="/banner.png"
+          alt="banner-image"
+          style={{ maxWidth: "100%" }}
+        />
       </section>
     </Layout>
   )
