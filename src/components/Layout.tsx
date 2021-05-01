@@ -1,6 +1,7 @@
 import React from "react"
 import Navbar from "./Navbar"
 import "../styles/global.css"
+import { from } from "core-js/core/array"
 
 const Layout: React.FC = props => {
   return (
