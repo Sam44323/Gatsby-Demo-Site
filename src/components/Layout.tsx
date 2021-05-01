@@ -12,5 +12,4 @@ const Layout: React.FC = props => {
     </div>
   )
 }
-
 export default Layout
