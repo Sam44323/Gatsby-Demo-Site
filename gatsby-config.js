@@ -6,6 +6,7 @@
 
 module.exports = {
   plugins: [
+    "gatsby-transformer-remark", // transform the markdown files into more useful data
     {
       resolve: `gatsby-source-filesystem`,
       options: {
