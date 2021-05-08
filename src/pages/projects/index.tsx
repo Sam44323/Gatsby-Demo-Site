@@ -35,7 +35,7 @@ const ProjectHome: React.FC<{
 export default ProjectHome
 export const query = graphql`
   query ProjectsPage {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         frontmatter {
           title
