@@ -9,7 +9,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
+        name: `notes`,
         path: `${__dirname}/src/notes/`,
       },
     },
