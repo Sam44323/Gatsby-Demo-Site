@@ -5,13 +5,22 @@ import * as styles from "../../styles/projects.module.css"
 import { PortfolioInterface } from "../../utils/interfaces"
 
 const ProjectHome: React.FC<{
-  data: { allMarkdownRemark: { nodes: PortfolioInterface[] } }
+  data: {
+    projects: { nodes: PortfolioInterface[] }
+    contact: {
+      siteMetadata: {
+        contact: string
+      }
+    }
+  }
 }> = ({
   data: {
-    allMarkdownRemark: { nodes: portfolio },
+    projects: { nodes: portfolio },
+    contact: {
+      siteMetadata: { contact },
+    },
   },
 }) => {
-  console.log(portfolio)
   return (
     <Layout>
       <div className={styles.portfolio}>
@@ -27,6 +36,7 @@ const ProjectHome: React.FC<{
             </Link>
           ))}
         </div>
+        <p>Like what you see? Email me at {contact} for a quote!</p>
       </div>
     </Layout>
   )
@@ -35,7 +45,9 @@ const ProjectHome: React.FC<{
 export default ProjectHome
 export const query = graphql`
   query ProjectsPage {
-    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+    projects: allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
       nodes {
         frontmatter {
           title
@@ -43,6 +55,11 @@ export const query = graphql`
           slug
         }
         id
+      }
+    }
+    contact: site {
+      siteMetadata {
+        contact
       }
     }
   }
