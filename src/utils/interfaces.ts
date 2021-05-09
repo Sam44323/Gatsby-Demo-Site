@@ -20,3 +20,16 @@ export interface PortfolioInterface {
     nodes: PortfolioObjectInterface[]
   }
 }
+
+export interface ProjectTemplateInterface {
+  markdownRemark: {
+    html: string
+    frontmatter: {
+      title: string
+      stack: string
+      featuredImg: {
+        childrenImageSharp: { fluid: { src: string } }[]
+      }
+    }
+  }
+}
