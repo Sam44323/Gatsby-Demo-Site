@@ -1,7 +1,7 @@
 import Layout from "../components/Layout"
 import React from "react"
 import Img from "gatsby-image"
-import styles from "../styles/project-details.module.css"
+import * as styles from "../styles/project-details.module.css"
 
 const ProjectDetails: React.FC = () => {
   return (
