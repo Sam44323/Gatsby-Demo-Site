@@ -3,33 +3,29 @@ import React from "react"
 import Layout from "../../components/Layout"
 import * as styles from "../../styles/projects.module.css"
 import { PortfolioInterface } from "../../utils/interfaces"
+import Img from "gatsby-image"
 
-const ProjectHome: React.FC<{
+const ProjectHome: React.FC<{ data: PortfolioInterface }> = ({
   data: {
-    projects: { nodes: PortfolioInterface[] }
-    contact: {
-      siteMetadata: {
-        contact: string
-      }
-    }
-  }
-}> = ({
-  data: {
-    projects: { nodes: portfolio },
     contact: {
       siteMetadata: { contact },
     },
+    projects: { nodes },
   },
 }) => {
+  console.log(contact, nodes)
   return (
     <Layout>
       <div className={styles.portfolio}>
         <h2>Portfolio</h2>
         <h3>Projects & Websites I've Created</h3>
         <div className={styles.projects}>
-          {portfolio.map(project => (
+          {nodes.map(project => (
             <Link to={`/projects/${project.frontmatter.slug}`} key={project.id}>
               <div>
+                <Img
+                  fluid={project.frontmatter.thumb.childrenImageSharp[0].fluid}
+                />
                 <h3>{project.frontmatter.title}</h3>
                 <p>{project.frontmatter.stack}</p>
               </div>
@@ -44,15 +40,20 @@ const ProjectHome: React.FC<{
 
 export default ProjectHome
 export const query = graphql`
-  query ProjectsPage {
-    projects: allMarkdownRemark(
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
+  query ProjectPage {
+    projects: allMarkdownRemark {
       nodes {
         frontmatter {
-          title
-          stack
+          thumb {
+            childrenImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
           slug
+          stack
+          title
         }
         id
       }
