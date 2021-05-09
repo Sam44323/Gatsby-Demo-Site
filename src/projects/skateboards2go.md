@@ -3,7 +3,7 @@ title: Skateboards2Go
 stack: Vue & Firebase
 slug: skateboards-to-go
 date: 2021-02-01 00:00:00 +0000
-thumb: ../images/thumbs/skate.png
+thumb: ../images/thumb/skate.png
 featuredImg: ../images/featured/skate-banner.png
 ---
 

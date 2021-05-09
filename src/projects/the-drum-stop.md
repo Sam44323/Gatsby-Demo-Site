@@ -3,7 +3,7 @@ title: The Drum Stop
 stack: Next.js
 slug: the-drum-stop
 date: 2021-01-18 00:00:00 +0000
-thumb: ../images/thumbs/drums.png
+thumb: ../images/thumb/drums.png
 featuredImg: ../images/featured/drums-banner.png
 ---
 

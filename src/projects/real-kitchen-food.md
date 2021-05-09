@@ -3,7 +3,7 @@ title: Real Kitchen Food
 stack: Gatsby & Shopify
 slug: real-kitchen-food
 date: 2021-01-05 00:00:00 +0000
-thumb: ../images/thumbs/food.png
+thumb: ../images/thumb/food.png
 featuredImg: ../images/featured/food-banner.png
 ---
 
